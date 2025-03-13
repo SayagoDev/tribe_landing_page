@@ -31,6 +31,8 @@ export const Hero = () => {
             <Image
               src={cogImage}
               alt="Cog Image"
+              height={648}
+              width={648}
               className="md:absolute md:h-full md:w-auto md:max-w-none md:-left-6 lg:left-0"
             />
             <Image
