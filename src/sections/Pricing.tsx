@@ -77,7 +77,7 @@ export const Pricing = () => {
               // eslint-disable-next-line react/jsx-key
               <div
                 className={twMerge(
-                  "p-10 border border-[#F1F1F1] rounded-3xl shadow-[0_7px_14px_#EAEAEA] bg-white max-w-xs w-full",
+                  "card",
                   inverse && "border-black bg-black text-white",
                 )}
               >
