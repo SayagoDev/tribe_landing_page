@@ -11,9 +11,10 @@ import {
   useTransform,
   useMotionValueEvent,
 } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
 export const Hero = () => {
+  const [isLoaded, setIsLoaded] = useState(false);
   const heroRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -21,6 +22,10 @@ export const Hero = () => {
   });
 
   const translateY = useTransform(scrollYProgress, [0, 1], [150, -150]);
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
 
   return (
     <section
@@ -54,14 +59,23 @@ export const Hero = () => {
               height={648}
               width={648}
               className="md:absolute md:h-full md:w-auto md:max-w-none md:-left-6 lg:left-0"
-              animate={{
-                translateY: [-30, 30],
-              }}
+              initial={{ opacity: 0 }}
+              animate={
+                isLoaded
+                  ? {
+                      opacity: 1,
+                      translateY: [-30, 30],
+                    }
+                  : { opacity: 0 }
+              }
               transition={{
-                repeat: Infinity,
-                repeatType: "mirror",
-                duration: 3,
-                ease: "easeInOut",
+                opacity: { duration: 0.3 },
+                translateY: {
+                  repeat: Infinity,
+                  repeatType: "mirror",
+                  duration: 3,
+                  ease: "easeInOut",
+                },
               }}
             />
             <motion.img
@@ -70,19 +84,23 @@ export const Hero = () => {
               height={220}
               alt="Cylinder Image"
               className="hidden md:block -top-8 -left-32 md:absolute"
-              style={{
-                translateY: translateY,
-              }}
+              initial={{ opacity: 0 }}
+              animate={isLoaded ? { opacity: 1 } : { opacity: 0 }}
+              style={{ translateY }}
+              transition={{ duration: 0.3 }}
             />
             <motion.img
               src={noddleImage.src}
               width={220}
               className="hidden lg:block absolute top-[524px] left-[448px] rotate-[30deg]"
               alt="Noddle Image"
+              initial={{ opacity: 0 }}
+              animate={isLoaded ? { opacity: 1 } : { opacity: 0 }}
               style={{
                 rotate: 30,
-                translateY: translateY,
+                translateY,
               }}
+              transition={{ duration: 0.3 }}
             />
           </div>
         </div>
