@@ -42,9 +42,17 @@ export const Header = () => {
       <div className="py-5">
         <div className="container">
           <div className="flex items-center justify-between">
-            <a href="#">
-              <Image src={Logo} alt="Saas Logo" width={40} height={40} />
-            </a>
+            <div className="relative before:content-[''] before:top-2 before:bottom-0 before:blur before:w-full before:bg-[linear-gradient(to_right,#F87BFF,#FB92CF,#FFDD9B,#C2F0B1,#2FD8FE)] before:absolute">
+              <a href="#">
+                <Image
+                  src={Logo}
+                  alt="Saas Logo"
+                  width={40}
+                  height={40}
+                  className="relative"
+                />
+              </a>
+            </div>
             <button onClick={() => setIsMenuOpen(true)} className="md:hidden">
               <MenuIcon className="h-5 w-5" />
             </button>
@@ -62,21 +70,31 @@ export const Header = () => {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-300 md:hidden ${isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-          }`}
+        className={`fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-300 md:hidden ${
+          isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
         onClick={() => setIsMenuOpen(false)}
       />
 
       {/* Mobile Menu Panel */}
       <div
-        className={`fixed top-0 right-0 min-h-screen w-full bg-black shadow-xl transition-transform duration-300 ease-in-out md:hidden ${isMenuOpen ? "translate-x-0" : "translate-x-full"
-          }`}
+        className={`fixed top-0 right-0 min-h-screen w-full bg-black shadow-xl transition-transform duration-300 ease-in-out md:hidden ${
+          isMenuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
       >
         <div className="flex flex-col min-h-screen">
           <div className="flex items-center justify-between p-8 border-b border-white/10">
-            <a onClick={handleLinkClick} href="#">
-              <Image src={Logo} alt="Saas Logo" width={40} height={40} />
-            </a>
+            <div className="relative before:content-[''] before:top-2 before:bottom-0 before:blur before:w-full before:bg-[linear-gradient(to_right,#F87BFF,#FB92CF,#FFDD9B,#C2F0B1,#2FD8FE)] before:absolute">
+              <a onClick={handleLinkClick} href="#">
+                <Image
+                  src={Logo}
+                  alt="Saas Logo"
+                  width={40}
+                  height={40}
+                  className="relative"
+                />
+              </a>
+            </div>
             <button
               onClick={() => setIsMenuOpen(false)}
               className="text-white/60 hover:text-white"

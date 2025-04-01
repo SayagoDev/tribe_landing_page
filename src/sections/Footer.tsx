@@ -30,11 +30,21 @@ export const Footer = () => {
         </nav>
 
         <div className="flex justify-center gap-6 mt-6">
-          <SocialX />
-          <SocialInsta />
-          <SocailLinkedin />
-          <SocialPin />
-          <SocailYoutube />
+          <a href="#">
+            <SocialX />
+          </a>
+          <a href="#">
+            <SocialInsta />
+          </a>
+          <a href="#">
+            <SocailLinkedin />
+          </a>
+          <a href="#">
+            <SocialPin />
+          </a>
+          <a href="#">
+            <SocailYoutube />
+          </a>
         </div>
         <p className="mt-6">
           &copy; 2025 Your Company, Inc. All rights reserved.
